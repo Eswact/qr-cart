@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "name": "Şerbetli Tatlılar",
+      "image": "/images/serbetli-tatlilar.jpg",
+      "count": 4
+    },
+    {
+      "id": 2,
+      "name": "Sütlü Tatlılar",
+      "image": "/images/sutlu-tatlilar.jpg",
+      "count": 3
+    },
+    {
+      "id": 3,
+      "name": "İçecekler",
+      "image": "/images/icecekler.jpg",
+      "count": 3
+    },
+    {
+      "id": 4,
+      "name": "Dondurmalar",
+      "image": "/images/dondurmalar.jpg",
+      "count": 2
+    },
+    {
+      "id": 5,
+      "name": "Pasta ve Kekler",
+      "image": "/images/pasta-kekler.jpg",
+      "count": 2
+    },
+    {
+      "id": 6,
+      "name": "Kurabiyeler",
+      "image": "/images/kurabiye.jpg",
+      "count": 2
+    },
+    {
+      "id": 7,
+      "name": "Atıştırmalıklar",
+      "image": "/images/atistirmaliklar.jpg",
+      "count": 3
+    }
+]
+  

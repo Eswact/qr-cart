@@ -1,0 +1,11 @@
+{
+    "categories": "Kategoriler",
+    "menu_title": "Menü",
+    "footer_note": "Afiyet olsun!",
+    "404": {
+        "title": "Sayfa Bulunamadı",
+        "description": "Aradığınız sayfa mevcut değil. İşte bazı yararlı bağlantılar:",
+        "goBack": "Geri Dön",
+        "takeMeHome": "Anasayfaya Dön"
+    }
+}

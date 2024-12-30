@@ -1,0 +1,94 @@
+[
+    {
+      "id": 101,
+      "name": "Sütlaç",
+      "image": "/images/sutlac.jpg",
+      "categoryId": 2,
+      "price": 100.0
+    },
+    {
+      "id": 102,
+      "name": "Fırın Sütlaç",
+      "image": "/images/firin-sutlac.jpg",
+      "categoryId": 2,
+      "price": 105.0
+    },
+    {
+      "id": 103,
+      "name": "Künefe",
+      "image": "/images/kunefe.jpg",
+      "categoryId": 1,
+      "price": 120.0
+    },
+    {
+      "id": 104,
+      "name": "Kadayıf",
+      "image": "/images/kadayif.jpg",
+      "categoryId": 1,
+      "price": 88.0
+    },
+    {
+      "id": 105,
+      "name": "Limonata",
+      "image": "/images/limonata.jpg",
+      "categoryId": 3,
+      "price": 55.0
+    },
+    {
+      "id": 106,
+      "name": "Ayran",
+      "image": "/images/ayran.jpg",
+      "categoryId": 3,
+      "price": 25.0
+    },
+    {
+      "id": 107,
+      "name": "Meyve Dondurması",
+      "image": "/images/meyve-dondurmasi.jpg",
+      "categoryId": 4,
+      "price": 48.0
+    },
+    {
+      "id": 108,
+      "name": "Çikolatalı Dondurma",
+      "image": "/images/cikolatali-dondurma.jpg",
+      "categoryId": 4,
+      "price": 40.0
+    },
+    {
+      "id": 109,
+      "name": "Çilekli Pasta",
+      "image": "/images/cilekli-pasta.jpg",
+      "categoryId": 5,
+      "price": 75.0
+    },
+    {
+      "id": 110,
+      "name": "Krema Pasta",
+      "image": "/images/krema-pasta.jpg",
+      "categoryId": 5,
+      "price": 85.0
+    },
+    {
+      "id": 111,
+      "name": "Börek",
+      "image": "/images/borek.jpg",
+      "categoryId": 7,
+      "price": 3260
+    },
+    {
+      "id": 112,
+      "name": "Poğaça",
+      "image": "/images/pogaca.jpg",
+      "categoryId": 7,
+      "price": 28.0
+    },
+    {
+        "id": 113,
+        "name": "Tuzlu Kurabiye",
+        "image": "/images/tuzlu-kurabiye.jpg",
+        "categoryId": 6,
+        "price": 28.0
+    }
+]
+  

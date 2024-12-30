@@ -1,0 +1,12 @@
+{
+    "categories": "Categories",
+    "menu_title": "Menu",
+    "footer_note": "Enjoy your meal!",
+    "404": {
+        "title": "Page not found",
+        "description": "The page you are looking for doesn't exist. Here are some helpful links:",
+        "goBack": "Go Back",
+        "takeMeHome": "Take me home"
+    }
+}
+  
