@@ -54,10 +54,11 @@ const getProductName = function (product) {
       <span class="font-semibold">{{ getCategoryNameLanguage() }}</span>
     </h1>
     <div class="w-full flex items-center gap-4 flex-wrap">
-      <div
+      <router-link
         v-for="product in products"
         :key="product.id"
-        class="w-[calc(20%-1rem)] xl:w-[calc(25%-1rem)] md:w-[calc(50%-0.5rem)] h-[200px] py-2 px-4 bg-white dark:bg-black text-third dark:text-main text-center flex flex-col items-center justify-around rounded-md shadow-lg"
+        :to="{name: 'product', params: {id: product.id}}"
+        class="w-[calc(20%-1rem)] xl:w-[calc(25%-1rem)] md:w-[calc(50%-0.5rem)] h-[200px] py-2 px-4 bg-white dark:bg-black text-third dark:text-main text-center flex flex-col items-center justify-around rounded-md shadow-lg hover:outline hover:outline-main focus:outline-main transition-all duration-200"
       >
         <img
           :src="product.image"
@@ -66,8 +67,8 @@ const getProductName = function (product) {
           onerror="this.src='/no-image.png'"
         />
         <h2 class="text-xl font-semibold">{{ getProductName(product) }}</h2>
-        <span class="text-lg font-bold text-fourth">{{ product.price }} ₺</span>
-      </div>
+        <span class="text-lg font-bold text-fourth">{{ commonFunctions.convert2PriceWithUnit(product.price) }}</span>
+      </router-link>
     </div>
   </div>
 </template>

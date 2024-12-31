@@ -5,7 +5,7 @@
       "nameEn": "Rice Pudding",
       "image": "/images/sutlac.jpg",
       "categoryId": 2,
-      "price": 100.0
+      "price": 100
     },
     {
       "id": 102,
@@ -13,7 +13,7 @@
       "nameEn": "Baked Rice Pudding",
       "image": "/images/firin-sutlac.jpg",
       "categoryId": 2,
-      "price": 105.0
+      "price": 105
     },
     {
       "id": 103,
@@ -21,7 +21,7 @@
       "nameEn": "Kunefe",
       "image": "/images/kunefe.jpg",
       "categoryId": 1,
-      "price": 120.0
+      "price": 120
     },
     {
       "id": 104,
@@ -29,7 +29,36 @@
       "nameEn": "Kadayif",
       "image": "/images/kadayif.jpg",
       "categoryId": 1,
-      "price": 88.0
+      "price": 88,
+      "props": [
+        {
+          "name": "Kaymaklı",
+          "nameEn": "With Clotted Cream",
+          "type": "checkbox",
+          "price": 12
+        },
+        {
+          "type": "select",
+          "values": [
+            {
+              "name": "Sade",
+              "nameEn": "Plain",
+              "price": 0,
+              "default": true
+            },
+            {
+              "name": "Fıstıklı",
+              "nameEn": "With Pistachio",
+              "price": 10
+            },
+            {
+              "name": "Cevizli",
+              "nameEn": "With Walnut",
+              "price": 5
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 105,
@@ -37,7 +66,25 @@
       "nameEn": "Lemonade",
       "image": "/images/limonata.jpg",
       "categoryId": 3,
-      "price": 55.0
+      "price": 55,
+      "props": [
+        {
+          "type": "select",
+          "values": [
+            {
+              "name": "Şekerli",
+              "nameEn": "With Sugar",
+              "price": 0,
+              "default": true
+            },
+            {
+              "name": "Şekersiz",
+              "nameEn": "Sugar Free",
+              "price": 0
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 106,
@@ -45,7 +92,7 @@
       "nameEn": "Ayran",
       "image": "/images/ayran.jpg",
       "categoryId": 3,
-      "price": 25.0
+      "price": 25
     },
     {
       "id": 107,
@@ -53,7 +100,7 @@
       "nameEn": "Fruit Ice Cream",
       "image": "/images/meyve-dondurmasi.jpg",
       "categoryId": 4,
-      "price": 48.0
+      "price": 48
     },
     {
       "id": 108,
@@ -61,7 +108,7 @@
       "nameEn": "Chocolate Ice Cream",
       "image": "/images/cikolatali-dondurma.jpg",
       "categoryId": 4,
-      "price": 40.0
+      "price": 40
     },
     {
       "id": 109,
@@ -69,7 +116,7 @@
       "nameEn": "Strawberry Cake",
       "image": "/images/cilekli-pasta.jpg",
       "categoryId": 5,
-      "price": 75.0
+      "price": 75
     },
     {
       "id": 110,
@@ -77,7 +124,7 @@
       "nameEn": "Cream Cake",
       "image": "/images/krema-pasta.jpg",
       "categoryId": 5,
-      "price": 85.0
+      "price": 85
     },
     {
       "id": 111,
@@ -93,7 +140,7 @@
       "nameEn": "Pogaca",
       "image": "/images/pogaca.jpg",
       "categoryId": 7,
-      "price": 28.0
+      "price": 28
     },
     {
         "id": 113,
@@ -101,7 +148,7 @@
         "nameEn": "Salty Cookie",
         "image": "/images/tuzlu-kurabiye.jpg",
         "categoryId": 6,
-        "price": 28.0
+        "price": 28
     }
 ]
   

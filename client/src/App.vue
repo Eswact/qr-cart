@@ -25,7 +25,7 @@ const isNotFound = computed(() => {
 
 <style scoped>
   .custom-bg {
-    background-image: url('paper.svg');
+    background-image: url('/paper.svg');
     background-repeat: repeat;
     background-position: center center;
   }
