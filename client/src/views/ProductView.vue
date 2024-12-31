@@ -1,22 +1,76 @@
 <script setup>
-    import { ref, onMounted } from 'vue';
+    import { useCartStore } from '@/stores/cart';
+    import { ref, onMounted, watch } from 'vue';
     import { useRouter } from 'vue-router';
     import AjaxScripts from '@/scripts/ajaxScripts';
-import commonFunctions from '@/scripts/common';
+    import commonFunctions from '@/scripts/common';
+    import { useI18n } from 'vue-i18n';
+
+    const cartStore = useCartStore();
+
     const router = useRouter();
+    const { locale } = useI18n();
+
     const product = ref({});
+    const quantity = ref(1);
+    const limit = ref(99);
+    const priceOfOptions = ref(0);
+    const selectedOptions = ref({});
+
     onMounted(() => {
         getProduct();
+
+        watch(product, (newProduct) => {
+            if (newProduct.props) {
+                newProduct.props.forEach(property => {
+                    if (property.type === 'select') {
+                        const defaultOption = property.values.find(option => option.default);
+                        if (defaultOption) {
+                            selectedOptions.value[property.id] = defaultOption;
+                        }
+                    }
+                });
+            }
+        });
     });
+
+    watch(selectedOptions, (newOptions) => {
+        priceOfOptions.value = Object.values(newOptions).reduce((acc, option) => acc + (option.price || 0), 0);
+    }, { deep: true });
+
     const getProduct = function () {
         let onSuccess = function (res) {
             product.value = res.find(product => product.id == router.currentRoute.value.params.id);
-            console.log(product.value);
+            if (product.value.limit) { limit.value = product.value.limit; }
         };
         let onError = function (err) {
             console.warn(err);
         };
         AjaxScripts.getProducts({ onSuccess, onError });
+    };
+
+    const increaseQuantity = function() {
+        if (quantity.value + 1 <= limit.value) {
+            quantity.value = quantity.value + 1;
+        }
+    }
+    const decreaseQuantity = function() {
+        if (quantity.value - 1 >= 1) {
+            quantity.value = quantity.value - 1;
+        }
+    }
+
+    const getOptionName = function(option) {
+        return locale.value === 'tr' ? option.name : option.nameEn;
+    }
+    const getProductName = function(product) {
+        return locale.value === 'tr' ? product.name : product.nameEn;
+    }
+
+
+    const addToCart = () => {
+        cartStore.addToCart(product.value, quantity.value, selectedOptions.value);
+        console.log(cartStore.$state);
     };
 </script>
 
@@ -31,24 +85,28 @@ import commonFunctions from '@/scripts/common';
             </div>
             <div class="w-[300px] flex flex-col justify-center items-center gap-8">
                 <div class="w-full flex flex-col items-center gap-2">
-                    <h1 class="text-4xl text-center font-semibold text-black dark:text-white">{{ product.name }}</h1>
-                    <p class="text-2xl text-center font-bold text-fourth">{{ commonFunctions.convert2PriceWithUnit(product.price) }}</p>
+                    <h1 class="text-4xl text-center font-semibold text-black dark:text-white">{{ getProductName(product) }}</h1>
+                    <p class="text-2xl text-center font-bold text-fourth">{{ commonFunctions.convert2PriceWithUnit(product.price + priceOfOptions) }}</p>
                 </div>
                 <div class="w-full flex flex-col items-center justify-center gap-4">
                     <div v-for="property in product.props" :key="property.id" class="w-full flex flex-col items-center gap-2">
-                        <div v-if="property.type == 'checkbox'" class="w-full">
-                            <span>{{ property.name }}:</span>
-                            <span>{{ property.value ? 'Var' : 'Yok' }}</span>
-                        </div>
-                        <div v-if="property.type == 'select'" class="w-full">
-                            <select class="w-full">
-                                <option v-for="option in property.values" :key="option.name" :value="option.name" :selected="option.default">{{ option.name }}</option>
+                        <div v-if="property.type == 'select'" class="w-full flex items-center justify-between">
+                            <select v-model="selectedOptions[property.id]" class="w-full text-xl py-2 text-dark dark:text-white bg-transparent">
+                                <option v-for="option in property.values" :key="option.name" :value="option" :selected="option.default" class="dark:text-black text-lg">
+                                    {{ getOptionName(option) }}
+                                    {{ (option.price > 0) ? `(+${commonFunctions.convert2PriceWithUnit(option.price)})` : `` }}
+                                </option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="w-full flex flex-col items-center justify-center gap-2">
-                    <button class="w-full bg-third text-2xl font-semibold text-white px-4 py-2 rounded-md shadow-lg hover:bg-fourth duration-200">Sepete Ekle</button>
+                    <div class="w-full flex items-center justify-between">
+                        <button @click="decreaseQuantity" class="px-4 py-2 text-xl border-2 border-fourth bg-fourth text-white rounded-lg disabled:text-fourth disabled:bg-transparent" :disabled="quantity == 1"><font-awesome-icon icon="fa-solid fa-minus" /></button>
+                        <span class="text-2xl font-bold">{{ quantity }}</span>
+                        <button @click="increaseQuantity" class="px-4 py-2 text-xl border-2 border-fourth bg-fourth text-white rounded-lg disabled:text-fourth disabled:bg-transparent" :disabled="quantity == limit"><font-awesome-icon icon="fa-solid fa-plus" /></button>
+                    </div>
+                    <button @click="addToCart" class="w-full bg-third text-2xl font-semibold text-white px-4 py-2 rounded-md shadow-lg hover:bg-fourth duration-200">{{ $t('add2basket') }}</button>
                 </div>
             </div>
         </div>

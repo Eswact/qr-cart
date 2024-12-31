@@ -9,9 +9,9 @@ import i18n from './services/i18n'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faCircleDot, faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
+import { faCircleDot, faArrowLeftLong, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
-library.add(faCircleDot, faArrowLeftLong, faInstagram, faTwitter)
+library.add(faCircleDot, faArrowLeftLong, faMinus, faPlus, faInstagram, faTwitter)
 
 const app = createApp(App)
 .component('font-awesome-icon', FontAwesomeIcon)

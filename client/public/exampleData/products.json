@@ -30,14 +30,27 @@
       "image": "/images/kadayif.jpg",
       "categoryId": 1,
       "price": 88,
+      "limit": 10,
       "props": [
         {
-          "name": "Kaymaklı",
-          "nameEn": "With Clotted Cream",
-          "type": "checkbox",
-          "price": 12
+          "id": 1,
+          "type": "select",
+          "values": [
+            {
+              "name": "Kaymaksız",
+              "nameEn": "Without Clotted Cream",
+              "price": 0,
+              "default": true
+            },
+            {
+              "name": "Kaymaklı",
+              "nameEn": "With Clotted Cream",
+              "price": 20
+            }
+          ]
         },
         {
+          "id": 2,
           "type": "select",
           "values": [
             {
@@ -69,6 +82,7 @@
       "price": 55,
       "props": [
         {
+          "id": 1,
           "type": "select",
           "values": [
             {
