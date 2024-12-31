@@ -2,6 +2,7 @@
     {
       "id": 101,
       "name": "Sütlaç",
+      "nameEn": "Rice Pudding",
       "image": "/images/sutlac.jpg",
       "categoryId": 2,
       "price": 100.0
@@ -9,6 +10,7 @@
     {
       "id": 102,
       "name": "Fırın Sütlaç",
+      "nameEn": "Baked Rice Pudding",
       "image": "/images/firin-sutlac.jpg",
       "categoryId": 2,
       "price": 105.0
@@ -16,6 +18,7 @@
     {
       "id": 103,
       "name": "Künefe",
+      "nameEn": "Kunefe",
       "image": "/images/kunefe.jpg",
       "categoryId": 1,
       "price": 120.0
@@ -23,6 +26,7 @@
     {
       "id": 104,
       "name": "Kadayıf",
+      "nameEn": "Kadayif",
       "image": "/images/kadayif.jpg",
       "categoryId": 1,
       "price": 88.0
@@ -30,6 +34,7 @@
     {
       "id": 105,
       "name": "Limonata",
+      "nameEn": "Lemonade",
       "image": "/images/limonata.jpg",
       "categoryId": 3,
       "price": 55.0
@@ -37,6 +42,7 @@
     {
       "id": 106,
       "name": "Ayran",
+      "nameEn": "Ayran",
       "image": "/images/ayran.jpg",
       "categoryId": 3,
       "price": 25.0
@@ -44,6 +50,7 @@
     {
       "id": 107,
       "name": "Meyve Dondurması",
+      "nameEn": "Fruit Ice Cream",
       "image": "/images/meyve-dondurmasi.jpg",
       "categoryId": 4,
       "price": 48.0
@@ -51,6 +58,7 @@
     {
       "id": 108,
       "name": "Çikolatalı Dondurma",
+      "nameEn": "Chocolate Ice Cream",
       "image": "/images/cikolatali-dondurma.jpg",
       "categoryId": 4,
       "price": 40.0
@@ -58,6 +66,7 @@
     {
       "id": 109,
       "name": "Çilekli Pasta",
+      "nameEn": "Strawberry Cake",
       "image": "/images/cilekli-pasta.jpg",
       "categoryId": 5,
       "price": 75.0
@@ -65,6 +74,7 @@
     {
       "id": 110,
       "name": "Krema Pasta",
+      "nameEn": "Cream Cake",
       "image": "/images/krema-pasta.jpg",
       "categoryId": 5,
       "price": 85.0
@@ -72,6 +82,7 @@
     {
       "id": 111,
       "name": "Börek",
+      "nameEn": "Borek",
       "image": "/images/borek.jpg",
       "categoryId": 7,
       "price": 3260
@@ -79,6 +90,7 @@
     {
       "id": 112,
       "name": "Poğaça",
+      "nameEn": "Pogaca",
       "image": "/images/pogaca.jpg",
       "categoryId": 7,
       "price": 28.0
@@ -86,6 +98,7 @@
     {
         "id": 113,
         "name": "Tuzlu Kurabiye",
+        "nameEn": "Salty Cookie",
         "image": "/images/tuzlu-kurabiye.jpg",
         "categoryId": 6,
         "price": 28.0

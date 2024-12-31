@@ -2,42 +2,49 @@
     {
       "id": 1,
       "name": "Şerbetli Tatlılar",
+      "nameEn": "Sherbet Desserts",
       "image": "/images/serbetli-tatlilar.jpg",
       "count": 4
     },
     {
       "id": 2,
       "name": "Sütlü Tatlılar",
+      "nameEn": "Milk Desserts",
       "image": "/images/sutlu-tatlilar.jpg",
       "count": 3
     },
     {
       "id": 3,
       "name": "İçecekler",
+      "nameEn": "Beverages",
       "image": "/images/icecekler.jpg",
       "count": 3
     },
     {
       "id": 4,
       "name": "Dondurmalar",
+      "nameEn": "Ice Creams",
       "image": "/images/dondurmalar.jpg",
       "count": 2
     },
     {
       "id": 5,
       "name": "Pasta ve Kekler",
+      "nameEn": "Cakes and Cookies",
       "image": "/images/pasta-kekler.jpg",
       "count": 2
     },
     {
       "id": 6,
       "name": "Kurabiyeler",
+      "nameEn": "Cookies",
       "image": "/images/kurabiye.jpg",
       "count": 2
     },
     {
       "id": 7,
       "name": "Atıştırmalıklar",
+      "nameEn": "Snacks",
       "image": "/images/atistirmaliklar.jpg",
       "count": 3
     }

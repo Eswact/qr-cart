@@ -2,6 +2,11 @@
     "categories": "Kategoriler",
     "menu_title": "Menü",
     "footer_note": "Afiyet olsun!",
+    "marquee": [
+        "Tatlı krizine tek lokmalık çözüm.",
+        "Künefito",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur modi soluta veniam quis corporis asperiores ratione ullam eaque laboriosam. Nesciunt doloribus at harum iure soluta hic atque qui consectetur eligendi."
+    ],
     "404": {
         "title": "Sayfa Bulunamadı",
         "description": "Aradığınız sayfa mevcut değil. İşte bazı yararlı bağlantılar:",

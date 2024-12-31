@@ -1,15 +1,8 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useI18n } from "vue-i18n";
 
 const props = defineProps({
-    items: {
-        type: Array,
-        default: () => [
-            "Tatlı krizine tek lokmalık çözüm.",
-            "Künefito",
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur modi soluta veniam quis corporis asperiores ratione ullam eaque laboriosam. Nesciunt doloribus at harum iure soluta hic atque qui consectetur eligendi.",
-        ],
-    },
     duration: {
         type: Number,
         default: 60,
@@ -22,6 +15,9 @@ const props = defineProps({
 
 const marqueeStyle = ref({});
 marqueeStyle.value = { animationDuration: `${props.duration}s` };
+
+const { locale, messages } = useI18n();
+const items = computed(() => messages.value[locale.value].marquee);
 </script>
 
 <template>

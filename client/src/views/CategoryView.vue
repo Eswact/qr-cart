@@ -3,11 +3,14 @@ import AjaxScripts from '@/scripts/ajaxScripts';
 import commonFunctions from '@/scripts/common';
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { useI18n } from 'vue-i18n';
 
 const route = useRoute();
 const router = useRouter();
+const { locale } = useI18n();
 const products = ref([]);
 const categoryName = ref('');
+const categoryNameEn = ref('');
 
 onMounted(() => {
   getProductsByCategory(route.params.id);
@@ -27,19 +30,28 @@ const getProductsByCategory = function (categoryId) {
 const getCategoryName = function (categoryId) {
   let onSuccess = function (res) {
     categoryName.value = res.find(category => category.id == categoryId).name;
+    categoryNameEn.value = res.find(category => category.id == categoryId).nameEn;
   };
   let onError = function (err) {
     console.warn(err);
   };
   AjaxScripts.getCategories({ onSuccess, onError });
 };
+
+const getCategoryNameLanguage = () => {
+    return locale.value === 'tr' ? categoryName.value : categoryNameEn.value;
+};
+
+const getProductName = function (product) {
+  return locale.value === 'tr' ? product.name : product.nameEn;
+}
 </script>
 
 <template>
   <div class="w-full flex flex-col gap-4">
     <h1 class="text-2xl flex items-center gap-4">
       <button @click="router.back" class="text-3xl px-4"><font-awesome-icon class="pt-[2px]" icon="fa-solid fa-arrow-left-long" /></button>
-      <span class="font-semibold">{{ categoryName }}</span>
+      <span class="font-semibold">{{ getCategoryNameLanguage() }}</span>
     </h1>
     <div class="w-full flex items-center gap-4 flex-wrap">
       <div
@@ -53,7 +65,7 @@ const getCategoryName = function (categoryId) {
           :alt="product.name"
           onerror="this.src='/no-image.png'"
         />
-        <h2 class="text-xl font-semibold">{{ product.name }}</h2>
+        <h2 class="text-xl font-semibold">{{ getProductName(product) }}</h2>
         <span class="text-lg font-bold text-fourth">{{ product.price }} ₺</span>
       </div>
     </div>
