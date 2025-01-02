@@ -21,21 +21,15 @@
 
 <template>
     <div class="flex items-center justify-center">
-        <img
-            loading="lazy"
+        <button
             @click="switchLanguage('tr')"
             :class="{ 'hidden': currentLocale !== 'en' }"
-            class="w-[36px] md:w-[40px] cursor-pointer rounded-sm border-[1px] border-main dark:border-white"
-            src="/tr-flag.png"
-            alt="TR"
-        />
-        <img
-            loading="lazy"
+            class="w-12 text-lg font-semibold text-white cursor-pointer rounded-xl border-2 border-white flex justify-center items-center text-center"
+        >TR</button>
+        <button
             @click="switchLanguage('en')"
             :class="{ 'hidden': currentLocale !== 'tr' }"
-            class="w-[36px] md:w-[40px] cursor-pointer rounded-sm border-[1px] border-main dark:border-white"
-            src="/uk-flag.png"
-            alt="EN"
-        />
+            class="w-12 text-lg font-semibold text-white cursor-pointer rounded-xl border-2 border-white flex justify-center items-center text-center"
+        >EN</button>
     </div>
 </template>

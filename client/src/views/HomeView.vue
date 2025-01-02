@@ -13,7 +13,6 @@
 
   const getCategories = function () {
     let onSuccess = function (res) {
-      console.log(res);
       categories.value = res;
     };
     let onError = function (err) {

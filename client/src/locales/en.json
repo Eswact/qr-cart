@@ -13,6 +13,13 @@
         "goBack": "Go Back",
         "takeMeHome": "Take me home"
     },
-    "add2basket": "Add to basket"
+    "add2basket": "Add to basket",
+    "basket": {
+        "title": "Basket",
+        "item": "Item",
+        "totalPrice": "Total Price",
+        "createQr": "Generate QR Code",
+        "clearBasket": "Clear Basket"
+    }
 }
   

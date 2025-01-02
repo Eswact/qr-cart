@@ -13,9 +13,17 @@
 
     const product = ref({});
     const quantity = ref(1);
-    const limit = ref(99);
+    const limit = ref(cartStore.defaultLimit);
     const priceOfOptions = ref(0);
     const selectedOptions = ref({});
+
+    const addToCart = () => {
+        cartStore.addToCart(product.value, quantity.value, selectedOptions.value);
+        console.log(cartStore.$state);
+        quantity.value = 1;
+        selectedOptions.value = {};
+        resetProductOptions();
+    };
 
     onMounted(() => {
         getProduct();
@@ -67,11 +75,18 @@
         return locale.value === 'tr' ? product.name : product.nameEn;
     }
 
-
-    const addToCart = () => {
-        cartStore.addToCart(product.value, quantity.value, selectedOptions.value);
-        console.log(cartStore.$state);
-    };
+    const resetProductOptions = function() {
+        if (product.value.props) {
+            product.value.props.forEach(property => {
+                if (property.type === 'select') {
+                    const defaultOption = property.values.find(option => option.default);
+                    if (defaultOption) {
+                        selectedOptions.value[property.id] = defaultOption;
+                    }
+                }
+            });
+        }
+    }
 </script>
 
 <template>
@@ -81,7 +96,7 @@
         </div>
         <div class="w-full h-full flex flex-col items-center justify-center gap-8">
             <div class="h-[200px] w-[200px] flex items-center justify-center">
-                <img :src="product.image" alt="product.name" class="h-full w-auto" onerror="this.src='/no-image.png'"/>
+                <img :src="product.image" :alt="product.name" class="h-full w-auto" onerror="this.src='/no-image.png'"/>
             </div>
             <div class="w-[300px] flex flex-col justify-center items-center gap-8">
                 <div class="w-full flex flex-col items-center gap-2">

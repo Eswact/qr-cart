@@ -13,5 +13,12 @@
         "goBack": "Geri Dön",
         "takeMeHome": "Anasayfaya Dön"
     },
-    "add2basket": "Sepete ekle"
+    "add2basket": "Sepete ekle",
+    "basket": {
+        "title": "Sepet",
+        "item": "Kalem",
+        "totalPrice": "Toplam Tutar",
+        "createQr": "QR Kod Oluştur",
+        "clearBasket": "Sepeti Temizle"
+    }
 }
