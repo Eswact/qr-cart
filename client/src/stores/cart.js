@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { v4 as uuidv4 } from 'uuid';
 const defaultLimit = 99;
 
 export const useCartStore = defineStore('cart', {
@@ -25,7 +26,7 @@ export const useCartStore = defineStore('cart', {
                     }
                 }
                 this.items.push({
-                    id: crypto.randomUUID(),
+                    id: uuidv4(),
                     productId: product.id,
                     name: product.name,
                     nameEn: product.nameEn,
