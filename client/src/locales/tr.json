@@ -19,6 +19,8 @@
         "item": "Kalem",
         "totalPrice": "Toplam Tutar",
         "createQr": "QR Kod Oluştur",
-        "clearBasket": "Sepeti Temizle"
+        "clearBasket": "Sepeti Temizle",
+        "downloadQr": "QR Kodu İndir",
+        "closeQr": "Kapat"
     }
 }

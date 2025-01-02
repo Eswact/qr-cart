@@ -1,11 +1,44 @@
 <script setup>
-    import { defineEmits } from 'vue';
+    import { ref, defineEmits } from 'vue';
+    import QRCode from 'qrcode';
     import { useCartStore } from '@/stores/cart';
     import commonFunctions from '@/scripts/common';
     import { useI18n } from 'vue-i18n';
     const emit = defineEmits(['close']);
     const cartStore = useCartStore();
     const { locale } = useI18n();
+    const qrCodeData = ref(null);
+
+    const generateQRCode = () => {
+        const cartItems = cartStore.$state.items;
+        const cartData = cartItems.map(item => ({
+            id: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            totalPrice: item.totalPrice,
+        }));
+
+        QRCode.toDataURL(JSON.stringify(cartData), { errorCorrectionLevel: 'H' })
+            .then(url => {
+            qrCodeData.value = url;
+            })
+            .catch(err => {
+            console.error('QR oluşturulurken hata:', err);
+            });
+    };
+
+    const downloadQrCode = () => {
+        if (!qrCodeData.value) return;
+        const link = document.createElement('a');
+        link.href = qrCodeData.value;
+        link.download = 'qrcode.png';
+        link.click();
+    };
+
+    const closeQRCodeModal = () => {
+        qrCodeData.value = null;
+    };
 
     const increaseQuantity = function(id, quantity, limit) {
         if (quantity + 1 <= limit) {
@@ -79,9 +112,17 @@
                         <span class="text-2xl font-bold">{{ commonFunctions.convert2PriceWithUnit(cartStore.totalPrice) }}</span>
                     </div>
                 </div>
-                <button class="w-full text-center text-xl font-bold bg-fourth p-2 text-white rounded-xl">{{ $t('basket.createQr') }}</button>
+                <button @click="generateQRCode" class="w-full text-center text-xl font-bold bg-fourth p-2 text-white rounded-xl">{{ $t('basket.createQr') }}</button>
                 <button @click="cartStore.clearCart" class="w-full text-center text-xl font-bold bg-red-600 p-2 text-white rounded-xl">{{ $t('basket.clearBasket') }}</button>
             </div>
+        </div>
+    </div>
+
+    <div v-if="qrCodeData" @click.self="closeQRCodeModal" class="z-40 fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.7)] flex items-center justify-center">
+        <div class="relative bg-white p-4 sm:w-full sm:h-full flex flex-col gap-2 justify-center items-center rounded-lg">
+          <img :src="qrCodeData" alt="QR Kodu" class="mx-auto"/>
+          <button @click="downloadQrCode" class="w-full px-4 py-2 bg-green-500 text-white rounded-lg">{{ $t('basket.downloadQr') }}</button>
+          <button @click="closeQRCodeModal" class="w-full px-4 py-2 bg-red-500 text-white rounded-lg">{{ $t('basket.closeQr') }}</button>
         </div>
     </div>
 </template>

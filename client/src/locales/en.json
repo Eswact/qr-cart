@@ -19,7 +19,9 @@
         "item": "Item",
         "totalPrice": "Total Price",
         "createQr": "Generate QR Code",
-        "clearBasket": "Clear Basket"
+        "clearBasket": "Clear Basket",
+        "downloadQr": "Download QR Code",
+        "closeQr": "Close"
     }
 }
   
