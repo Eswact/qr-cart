@@ -1,5 +1,5 @@
 <script setup>
-    import { ref, defineEmits } from 'vue';
+    import { ref } from 'vue';
     import { useI18n } from 'vue-i18n';
     import { useCartStore } from '@/stores/cart';
     import { createQRCode } from '@/services/qrCode';
@@ -48,7 +48,6 @@
         cartStore.updateQuantity(id, quantity);
     }
 </script>
-
 <template>
     <div id="basketModal" @click.self="emit('close')" class="z-30 fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.7)] flex items-center justify-center">
         <div class="relative w-full h-full max-w-[600px] max-h-[800px] sm:max-w-full sm:max-h-full bg-bg text-black flex flex-col justify-between gap-4 rounded-lg p-4">
