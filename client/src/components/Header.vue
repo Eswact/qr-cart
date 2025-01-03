@@ -6,7 +6,7 @@
 <template>
     <header class="h-full flex items-center justify-between text-white">
         <div class="h-full flex items-center gap-4">
-            <img src="/kunefito.png" class="h-full" alt="Logo">
+            <img src="/kunefito-2.png" class="h-full" alt="Logo">
             <router-link to="/"><h1 class="text-4xl sm:text-2xl font-bold">Künefito</h1></router-link>
         </div>
         <div class="h-full flex items-center gap-8">
