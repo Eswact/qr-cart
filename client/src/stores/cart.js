@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia';
-import { v4 as uuidv4 } from 'uuid';
-const defaultLimit = 99;
+import { generateUUID } from '@/services/uuid';
+import productFunctions from '@/scripts/product';
 
 export const useCartStore = defineStore('cart', {
     state: () => ({
         items: [],
     }),
     getters: {
-        defaultLimit: () => defaultLimit,
+        defaultLimit: () => productFunctions.getDefaultLimit(),
         totalItems: (state) => state.items.reduce((total, item) => total + 1, 0),
         totalPrice: (state) => state.items.reduce((total, item) => total + item.totalPrice, 0),
     },
@@ -16,25 +16,23 @@ export const useCartStore = defineStore('cart', {
             const existingItem = this.items.find(item => item.productId === product.id && JSON.stringify(item.options) === JSON.stringify(options));
             if (existingItem) {
                 existingItem.quantity += quantity;
-            } else {
+                existingItem.totalPrice = productFunctions.calculateTotalPrice(existingItem.price, existingItem.quantity);
+            }
+            else {
                 let productPrice = product.price;
-                if (options != {} && options != null) {
-                    for (const [key, value] of Object.entries(options)) {
-                        if (value.price > 0) {
-                            productPrice += value.price;
-                        }
-                    }
+                if (options) {
+                    productPrice = productFunctions.calculatePriceWithOptions(productPrice, options);
                 }
                 this.items.push({
-                    id: uuidv4(),
+                    id: generateUUID(),
                     productId: product.id,
                     name: product.name,
                     nameEn: product.nameEn,
                     image: product.Image,
                     price: productPrice,
                     quantity,
-                    limit: product.limit || defaultLimit,
-                    totalPrice: productPrice * quantity,
+                    limit: product.limit || productFunctions.getDefaultLimit(),
+                    totalPrice: productFunctions.calculateTotalPrice(productPrice, quantity),
                     options,
                 });
             }

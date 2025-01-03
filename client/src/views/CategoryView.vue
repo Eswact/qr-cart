@@ -41,10 +41,6 @@ const getCategoryName = function (categoryId) {
 const getCategoryNameLanguage = () => {
     return locale.value === 'tr' ? categoryName.value : categoryNameEn.value;
 };
-
-const getProductName = function (product) {
-  return locale.value === 'tr' ? product.name : product.nameEn;
-}
 </script>
 
 <template>
@@ -66,7 +62,7 @@ const getProductName = function (product) {
           :alt="product.name"
           onerror="this.src='/no-image.png'"
         />
-        <h2 class="text-xl font-semibold">{{ getProductName(product) }}</h2>
+        <h2 class="text-xl font-semibold">{{ commonFunctions.getLocalizedName(product, locale) }}</h2>
         <span class="text-lg font-bold text-fourth">{{ commonFunctions.convert2PriceWithUnit(product.price) }}</span>
       </router-link>
     </div>

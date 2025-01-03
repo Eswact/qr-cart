@@ -68,13 +68,6 @@
         }
     }
 
-    const getOptionName = function(option) {
-        return locale.value === 'tr' ? option.name : option.nameEn;
-    }
-    const getProductName = function(product) {
-        return locale.value === 'tr' ? product.name : product.nameEn;
-    }
-
     const resetProductOptions = function() {
         if (product.value.props) {
             product.value.props.forEach(property => {
@@ -100,15 +93,15 @@
             </div>
             <div class="w-[300px] flex flex-col justify-center items-center gap-8">
                 <div class="w-full flex flex-col items-center gap-2">
-                    <h1 class="text-4xl text-center font-semibold text-black dark:text-white">{{ getProductName(product) }}</h1>
+                    <h1 class="text-4xl text-center font-semibold text-black dark:text-white">{{ commonFunctions.getLocalizedName(product, locale) }}</h1>
                     <p class="text-2xl text-center font-bold text-fourth">{{ commonFunctions.convert2PriceWithUnit(product.price + priceOfOptions) }}</p>
                 </div>
                 <div class="w-full flex flex-col items-center justify-center gap-4">
                     <div v-for="property in product.props" :key="property.id" class="w-full flex flex-col items-center gap-2">
                         <div v-if="property.type == 'select'" class="w-full flex items-center justify-between">
-                            <select v-model="selectedOptions[property.id]" class="w-full text-xl py-2 text-dark dark:text-white bg-transparent">
+                            <select v-model="selectedOptions[property.id]" class="w-full text-xl py-2 text-dark dark:text-white bg-transparent border-2 border-dark dark:border-white px-1 rounded-lg">
                                 <option v-for="option in property.values" :key="option.name" :value="option" :selected="option.default" class="dark:text-black text-lg">
-                                    {{ getOptionName(option) }}
+                                    {{ commonFunctions.getLocalizedName(option, locale) }}
                                     {{ (option.price > 0) ? `(+${commonFunctions.convert2PriceWithUnit(option.price)})` : `` }}
                                 </option>
                             </select>
