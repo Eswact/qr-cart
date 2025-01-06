@@ -61,16 +61,16 @@
                         <img :src="item.image || '/no-image.png'" :alt="commonFunctions.getLocalizedName(item, locale)" class="h-full max-h-[100px] w-[50%] pr-2 object-contain"/>
                         <div class="w-[50%] h-full flex flex-col items-start justify-around gap-1">
                             <h3 class="text-2xl text-start font-semibold text-black w-full overflow-hidden text-ellipsis">{{ commonFunctions.getLocalizedName(item, locale) }}</h3>
-                            <div  v-if="Object.values(item.options).some(opt => opt.price > 0)" class="w-full flex items-center gap-1 overflow-hidden">
+                            <div  v-if="Object.values(item.options).some(opt => opt.default != true)" class="w-full flex items-center gap-1 overflow-hidden">
                                 <span 
                                     class="text-sm font-semibold text-start overflow-hidden text-main text-ellipsis whitespace-nowrap" 
                                     :title="Object.values(item.options)
-                                    .filter(opt => opt.price > 0)
+                                    .filter(opt => opt.default != true)
                                     .map(opt => commonFunctions.getLocalizedName(opt, locale))
                                     .join(', ')"
                                 >
                                     {{ Object.values(item.options)
-                                    .filter(opt => opt.price > 0)
+                                    .filter(opt => opt.default != true)
                                     .map(opt => commonFunctions.getLocalizedName(opt, locale))
                                     .join(', ') }}
                                 </span>
