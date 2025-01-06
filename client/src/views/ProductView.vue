@@ -23,6 +23,7 @@
         quantity.value = 1;
         selectedOptions.value = {};
         resetProductOptions();
+        router.push(`/category/${product.value.categoryId}`);
     };
 
     onMounted(() => {
