@@ -1,10 +1,11 @@
 {
+    "appName": "Dessert Shop",
     "categories": "Categories",
     "menu_title": "Menu",
     "footer_note": "Enjoy your meal!",
     "marquee": [
-        "A bite solution to your sweet tooth.",
-        "Künefito",
+        "A solution to your sweet tooth.",
+        "Dessert Shop",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur modi soluta veniam quis corporis asperiores ratione ullam eaque laboriosam. Nesciunt doloribus at harum iure soluta hic atque qui consectetur eligendi."
     ],
     "404": {
